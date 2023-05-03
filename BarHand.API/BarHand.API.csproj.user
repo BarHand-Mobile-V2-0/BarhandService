@@ -5,5 +5,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>IIS Express</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>D:\Proyectos\.NET\BarHand.API\BarHand.API\Properties\PublishProfiles\moisesmore75-001-site1 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

@@ -35,11 +35,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-
-builder.Services.AddSwaggerGen(options=>
+//builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
 {
     // Add API Documentation Information
-        
+
     options.SwaggerDoc("v1", new OpenApiInfo
     {
         Version = "v1",
@@ -75,14 +75,15 @@ builder.Services.AddSwaggerGen(options=>
             Array.Empty<string>()
         }
     });
-});
+}
+);
 
 //Add Data Base Connection
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(
-    options=>options.UseNpgsql(connectionString)
+    options=>options.UseMySQL(connectionString)
         .LogTo(Console.WriteLine,LogLevel.Information)
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors());
@@ -142,8 +143,8 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
     app.UseSwagger();
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-        options.RoutePrefix = string.Empty;
+        //options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        //options.RoutePrefix = string.Empty;
     });
 
 //}

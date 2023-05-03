@@ -46,9 +46,6 @@ public class NotificationController : ControllerBase
         return resources;
     }
 
-
-
-
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody] SaveNotificationResource resource)
     {
